@@ -9,4 +9,6 @@ User.create!(username:  "adeade",
              email: "ade@yahoo.com",
              password:              "day2day",
              password_confirmation: "day2day",
-             admin: true)
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)

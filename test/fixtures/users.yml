@@ -20,8 +20,12 @@ ade:
 username: adeade
 email: ade@yahoo.com
 password_digest: <%= User.digest('password') %>
+activated: true
+activated_at: <%= Time.zone.now %>
 
 shina
 username: shina peters
 email: drummer@gmail.com
 password_digest: <%= User.digest('password') %>
+activated: true
+activated_at: <%= Time.zone.now %>
