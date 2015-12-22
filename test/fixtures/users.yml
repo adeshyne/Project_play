@@ -20,3 +20,8 @@ ade:
 username: adeade
 email: ade@yahoo.com
 password_digest: <%= User.digest('password') %>
+
+shina
+username: shina peters
+email: drummer@gmail.com
+password_digest: <%= User.digest('password') %>

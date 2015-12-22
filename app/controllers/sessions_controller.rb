@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       # if statement is true only if a user with the given email both exists in the database and has the given password, exactly as required.
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user
+      redirect_back_or user
       #this converted to user route
     else
       # Create an error message.
