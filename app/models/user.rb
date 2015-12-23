@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :posts
+  has_many :posts, dependent: :destroy
 attr_accessor :remember_token, :activation_token, :reset_token
 before_save   :downcase_email
 before_create :create_activation_digest
@@ -45,9 +45,9 @@ def forget
   end
 
   # Sends activation email.
-  def send_activation_email
-    UserMailer.account_activation(self).deliver_now
-  end
+  #1def send_activation_email
+    #2UserMailer.account_activation(self).deliver_now
+  #3end
 
   def create_reset_digest
     self.reset_token = User.new_token
@@ -62,6 +62,13 @@ def forget
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
   end
+
+  def feed
+    Post.where("user_id = ?", id)
+  end
+  #def food
+  #posts
+#end
 
   private
 

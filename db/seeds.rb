@@ -12,3 +12,19 @@ User.create!(username:  "adeade",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
+
+99.times do |n|
+  username  = Faker::Name.name
+  email = "example-#{n+1}@play.com"
+  password = "password"
+  User.create!(username:  username,
+               email: email,
+               password:              password,
+               password_confirmation: password)
+end
+
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.posts.create!(content: content) }
+end
