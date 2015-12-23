@@ -7,8 +7,6 @@ class StaticController < ApplicationController
   end
 end
 
-  def help
-  end
 
   def about
   end
